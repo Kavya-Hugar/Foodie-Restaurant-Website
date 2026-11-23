@@ -1,0 +1,750 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Foodie Restaurant | Delicious Food & Online Ordering</title>
+
+    <!-- Website Favicon -->
+<link rel="icon" type="image/png"
+      href="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
+
+    <meta name="description" content="Visit Foodie Restaurant for delicious pizza, burgers and biryani. Explore our menu, special offers and contact us to place your order.">
+
+    <meta name="keywords" content="Foodie Restaurant, pizza, burger, biryani, online food ordering">
+
+    <meta name="author" content="Foodie Restaurant">
+
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Foodie Restaurant">
+
+    <meta property="og:description" content="Discover delicious food and special offers at Foodie Restaurant.">
+
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
+</head>
+<body>
+
+    <div id="loader">
+    <div class="spinner"></div>
+    <h2>Foodie Restaurant</h2>
+    <p>Preparing something delicious...</p>
+</div>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+
+            <!-- Professional Restaurant Logo -->
+<a href="#home" class="logo">
+    <span class="logo-icon">🍴</span>
+    <span class="logo-text">Foodie<span class="logo-dot">.</span></span>
+</a>
+
+            <button class="menu-toggle" id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false">
+    ☰
+</button>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+                
+            </ul>
+
+            <a href="#menu" class="btn">Order Now</a>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Delicious Food,<br>Made With Love</h1>
+            <p>Enjoy fresh and tasty food with your family and friends.</p>
+            <a href="#menu" class="btn">Explore Menu</a>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+ 
+<section id="menu" class="menu">
+
+    <h2>Our <span>Special Menu</span></h2>
+
+    <p class="menu-subtitle">
+        Discover our delicious dishes, freshly prepared for you.
+    </p>
+
+    <div class="menu-container">
+
+        <!-- Pizza -->
+<div class="food-card">
+
+    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600"
+         alt="Delicious Italian Pizza"
+         loading="lazy">
+
+    <div class="food-info">
+        <h3>Italian Pizza</h3>
+        <p>Fresh cheese, vegetables and Italian flavours.</p>
+        <span>₹199</span>
+    </div>
+
+    <button class="order-btn"
+            data-item="Italian Pizza"
+            data-price="199">
+        Add to Cart
+    </button>
+
+</div>
+
+        <!-- Burger -->
+<div class="food-card">
+
+    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600"
+         alt="Fresh Burger"
+         loading="lazy">
+
+    <div class="food-info">
+        <h3>Classic Burger</h3>
+        <p>Juicy burger with fresh vegetables and cheese.</p>
+        <span>₹149</span>
+    </div>
+
+    <button class="order-btn"
+            data-item="Classic Burger"
+            data-price="149">
+        Add to Cart
+    </button>
+
+</div>
+
+        <!-- Biryani -->
+<div class="food-card">
+
+    <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=800&q=80"
+         alt="Delicious Biryani"
+         loading="lazy">
+
+    <div class="food-info">
+        <h3>Special Biryani</h3>
+        <p>Authentic aromatic biryani with rich flavours.</p>
+        <span>₹249</span>
+    </div>
+
+    <button class="order-btn"
+            data-item="Special Biryani"
+            data-price="249">
+        Add to Cart
+    </button>
+
+</div>
+
+    </div>
+
+    <!-- SHOPPING CART -->
+
+    <div class="shopping-cart" id="shoppingCart">
+
+        <h2>🛒 Your Shopping Cart</h2>
+
+        <p id="emptyCart">Your cart is empty!</p>
+
+        <div id="cartItems"></div>
+
+        <div class="cart-total">
+            Total: ₹<span id="cartTotal">0</span>
+        </div>
+
+       <form id="checkoutForm" class="checkout-form">
+
+    <h3>Customer Details</h3>
+
+    <input
+        type="text"
+        id="orderCustomerName"
+        placeholder="Enter your full name"
+        required
+    >
+
+    <input
+        type="tel"
+        id="orderCustomerPhone"
+        placeholder="Enter your 10-digit mobile number"
+        pattern="[0-9]{10}"
+        maxlength="10"
+        required
+    >
+
+    <textarea
+        id="customerAddress"
+        placeholder="Enter your complete delivery address"
+        rows="3"
+        required
+    ></textarea>
+
+    <select id="paymentMethod" required>
+        <option value="">Select Payment Method</option>
+        <option value="Cash on Delivery">Cash on Delivery</option>
+        <option value="Pay at Restaurant">Pay at Restaurant</option>
+    </select>
+
+    <button type="button" id="checkoutBtn" class="checkout-btn" disabled>
+        Place Your Order
+    </button>
+
+</form>
+
+    </div>
+
+</section>
+    <!-- SPECIAL OFFERS SECTION -->
+
+<section class="offers" id="offers">
+
+    <div class="offers-heading">
+        <span>LIMITED TIME OFFERS</span>
+        <h2>Special <span>Offers</span></h2>
+        <p>Enjoy delicious food with amazing deals.</p>
+    </div>
+
+    <div class="offers-container">
+
+        <!-- Offer 1 -->
+
+        <div class="offer-card">
+
+            <div class="offer-content">
+                <span class="offer-tag">FIRST ORDER</span>
+
+                <h3>Get 20% OFF</h3>
+
+                <p>Enjoy your first delicious meal with us.</p>
+
+                <a href="#contact" class="offer-btn">
+                    Order Now →
+                </a>
+                <a href="#shoppingCart" class="cart-nav-btn">
+    🛒 Cart (<span id="cartCount">0</span>)
+</a>
+            </div>
+
+            <div class="offer-image">
+                <img src="https://images.unsplash.com/photo-1579751626657-72bc17010498?w=600"
+                alt="Delicious restaurant food">
+            </div>
+
+        </div>
+
+
+        <!-- Offer 2 -->
+
+        <div class="offer-card second-offer">
+
+            <div class="offer-content">
+                <span class="offer-tag">WEEKEND SPECIAL</span>
+
+                <h3>Buy 1 Get 1</h3>
+
+                <p>Make your weekends more delicious.</p>
+
+                <a href="#contact" class="offer-btn">
+                    Order Now →
+                </a>
+            </div>
+
+            <div class="offer-image">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600"
+                alt="Special pizza offer">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+    <!-- ABOUT SECTION -->
+
+<section class="about" id="about">
+
+    <div class="about-container">
+
+        <div class="about-image">
+            <img
+                src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=85"
+                alt="Beautiful restaurant dining experience">
+        </div>
+
+        <div class="about-content">
+
+            <span class="about-label">OUR STORY</span>
+
+            <h2>Good Food, Great Moments, <span>Beautiful Memories.</span></h2>
+
+            <p>
+                Welcome to Foodie Restaurant, where delicious food
+                meets unforgettable experiences. We believe every
+                meal should be special.
+            </p>
+
+            <p>
+                Our chefs prepare delicious dishes using carefully
+                selected ingredients, passion and creativity.
+                Every visit is an opportunity to enjoy something special.
+            </p>
+
+            <div class="about-features">
+
+                <div class="feature">
+                    <span>✓</span>
+                    <p>Fresh Ingredients</p>
+                </div>
+
+                <div class="feature">
+                    <span>✓</span>
+                    <p>Expert Chefs</p>
+                </div>
+
+                <div class="feature">
+                    <span>✓</span>
+                    <p>Quality Service</p>
+                </div>
+
+                <div class="feature">
+                    <span>✓</span>
+                    <p>Delicious Food</p>
+                </div>
+
+            </div>
+
+            <a href="#contact" class="btn">Discover More</a>
+
+        </div>
+
+    </div>
+
+</section>
+        <!-- CUSTOMER REVIEWS SECTION -->
+
+<section class="reviews-section" id="reviews">
+
+    <div class="reviews-heading">
+        <span>TESTIMONIALS</span>
+        <h2>What Our <span>Customers Say</span></h2>
+        <p>Discover what people love about our food and service.</p>
+    </div>
+
+    <div class="reviews-container">
+
+        <!-- Review 1 -->
+        <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>
+                "Amazing food and wonderful service!
+                The atmosphere was beautiful.
+                I will definitely visit again."
+            </p>
+            <div class="review-customer">
+                <div class="review-avatar">A</div>
+                <div>
+                    <h3>Arjun Kumar</h3>
+                    <span>Happy Customer</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>
+                "The food was fresh and delicious.
+                The staff were friendly.
+                Highly recommended!"
+            </p>
+            <div class="review-customer">
+                <div class="review-avatar">P</div>
+                <div>
+                    <h3>Priya Sharma</h3>
+                    <span>Happy Customer</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>
+                "A perfect place to enjoy delicious
+                food with family and friends.
+                Great experience!"
+            </p>
+            <div class="review-customer">
+                <div class="review-avatar">R</div>
+                <div>
+                    <h3>Rahul Verma</h3>
+                    <span>Happy Customer</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+    <!-- FOOD GALLERY SECTION -->
+
+<section class="gallery" id="gallery">
+
+    <div class="gallery-heading">
+
+        <span>OUR FOOD COLLECTION</span>
+
+        <h2>Food That Looks <span>Delicious</span></h2>
+
+        <p>Explore our delicious creations, made with love.</p>
+
+    </div>
+
+    <div class="gallery-container">
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800"
+                 alt="Italian Pizza"
+                 loading="lazy">
+            <div class="gallery-overlay">
+                <h3>Italian Pizza</h3>
+                <p>Fresh and cheesy</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800"
+                 alt="Classic Burger"
+                 loading="lazy">
+            <div class="gallery-overlay">
+                <h3>Classic Burger</h3>
+                <p>Fresh and delicious</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=800"
+                 alt="Chicken Biryani"
+                 loading="lazy">
+            <div class="gallery-overlay">
+                <h3>Special Biryani</h3>
+                <p>Rich and flavourful</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800"
+                 alt="Delicious Dessert"
+                 loading="lazy">
+            <div class="gallery-overlay">
+                <h3>Sweet Dessert</h3>
+                <p>A perfect ending</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800"
+                 alt="Fresh Salad"
+                 loading="lazy">
+            <div class="gallery-overlay">
+                <h3>Fresh Salad</h3>
+                <p>Healthy and tasty</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=800"
+                 alt="Italian Pasta"
+                 loading="lazy">
+            <div class="gallery-overlay">
+                <h3>Italian Pasta</h3>
+                <p>Made with love</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- FAQ SECTION -->
+
+<section class="faq" id="faq">
+
+    <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+        <p>Everything you need to know about ordering with us.</p>
+    </div>
+
+    <div class="faq-container">
+
+        <details class="faq-item">
+            <summary>How can I place an order?</summary>
+            <p>Select your favourite food, add it to your cart, enter your details and place your order through WhatsApp.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>Can I order multiple food items?</summary>
+            <p>Yes! You can add multiple food items and change their quantities in your shopping cart.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>Which payment methods are available?</summary>
+            <p>Currently, you can select Cash on Delivery or Pay at Restaurant.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>How will I know my order is confirmed?</summary>
+            <p>Our restaurant will contact you through WhatsApp to confirm your order.</p>
+        </details>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT AND RESERVATION SECTION -->
+
+<section class="contact" id="contact">
+
+<!-- CONTACT AND RESERVATION SECTION -->
+
+<section class="contact" id="contact">
+
+    <div class="contact-heading">
+        <span>GET IN TOUCH</span>
+        <h2>Book Your <span>Table</span></h2>
+        <p>Reserve your table and enjoy a wonderful dining experience.</p>
+    </div>
+
+    <div class="contact-container">
+
+        <!-- Contact Information -->
+
+        <div class="contact-info">
+
+            <h3>Contact Information</h3>
+
+            <p>We would love to hear from you!</p>
+
+            <div class="info-item">
+                <span>📍</span>
+                <div>
+                    <h4>Our Location</h4>
+                    <p>Your Restaurant Address</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <span>📞</span>
+                <div>
+                    <h4>Phone Number</h4>
+                    <p>+91 9902654553</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <span>✉️</span>
+                <div>
+                    <h4>Email Address</h4>
+                    <p>food@example.com</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <span>🕒</span>
+                <div>
+                    <h4>Opening Hours</h4>
+                    <p>Monday - Sunday: 10 AM - 10 PM</p>
+                </div>
+
+                <div class="contact-actions">
+    <a href="tel:+919902654553" class="contact-btn call-btn">
+        📞 Call Now
+    </a>
+
+    <a href="https://wa.me/919902654553"
+       class="contact-btn whatsapp-btn"
+       target="_blank"
+       rel="noopener noreferrer">
+        💬 WhatsApp Us
+    </a>
+</div>
+            </div>
+
+        </div>
+
+      
+
+
+
+        <!-- Reservation Form -->
+
+        <form class="reservation-form" id="reservationForm">
+
+            <h3>Make a Reservation</h3>
+
+            <div class="form-group">
+                <label for="customerName">Your Name</label>
+                <input type="text" id="customerName"
+                    placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="customerEmail">Email Address</label>
+                <input type="email" id="customerEmail"
+                    placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="customerPhone">Phone Number</label>
+                <input type="tel" id="customerPhone"
+                    placeholder="Enter your phone number"
+                    pattern="[0-9]{10}" maxlength="10" required>
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="bookingDate">Date</label>
+                    <input type="date" id="bookingDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="guests">Guests</label>
+                    <select id="guests" required>
+                        <option value="">Select guests</option>
+                        <option>1 Person</option>
+                        <option>2 People</option>
+                        <option>3 People</option>
+                        <option>4 People</option>
+                        <option>5 People</option>
+                        <option>6+ People</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="message">Special Request</label>
+                <textarea id="message"
+                    placeholder="Write your message"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Submit Reservation →
+            </button>
+
+            <p id="formMessage" aria-live="polite"></p>
+
+        </form>
+
+    </div>
+
+</section>
+   
+<!-- Professional Footer -->
+
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+        <!-- About -->
+        <div class="footer-about">
+
+            <h2 class="footer-logo">
+                🍽️ Foodie<span>.</span>
+            </h2>
+
+            <p>
+                Delicious food, fresh ingredients and unforgettable taste.
+                Visit us and enjoy every bite!
+            </p>
+
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-links">
+
+            <h3>Quick Links</h3>
+
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#offers">Offers</a>
+            <a href="#about">About</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+
+        </div>
+
+        <!-- Contact Details -->
+        <div class="footer-contact">
+
+            <h3>Contact Us</h3>
+
+            <p>📍 Your Restaurant Address</p>
+            <p>📞 +91 9902654553</p>
+            <p>✉️ food@example.com</p>
+
+        </div>
+
+        <!-- Social Media -->
+        <div class="footer-social">
+
+            <h3>Follow Us</h3>
+
+            <a href="https://www.instagram.com/"
+               target="_blank"
+               rel="noopener noreferrer">Instagram</a>
+
+            <a href="https://www.facebook.com/"
+               target="_blank"
+               rel="noopener noreferrer">Facebook</a>
+
+        </div>
+
+    </div>
+
+    <!-- Copyright -->
+   
+
+<p class="copyright">
+    © 2026 Foodie Restaurant. All Rights Reserved.
+    Made with ❤️ for food lovers.
+</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- Back to Top Button -->
+
+<button id="backToTop" title="Back to Top">
+    ↑
+</button>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/919902654553?text=Hello%20Foodie%20Restaurant!"
+   class="whatsapp-float"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Chat with us on WhatsApp">
+    ☎
+</a>
+
+</body>
+</html>
